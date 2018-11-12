@@ -29,6 +29,7 @@ const server = http.createServer(function(req, res) {
             payload = typeof(payload) === 'object' ? payload : {};
             const payloadString = JSON.stringify(payload);
 
+            res.setHeader('Content-Type', 'application/json');
             res.writeHead(statusCode);
             res.end(payloadString);
             console.log('Returning this response', statusCode, payloadString);
