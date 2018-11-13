@@ -2,9 +2,10 @@ const http = require('http');
 const https = require('https');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
-const config = require('./config');
+const config = require('./lib/config');
 const fs = require('fs');
 const handlers = require('./lib/handlers');
+const helpers = require('./lib/helpers');
 
 const httpServer = http.createServer(function(req, res) {
     unifiedServer(req, res)
@@ -46,7 +47,7 @@ const unifiedServer = function (req, res) {
             'queryStringObject': queryStringObject,
             'method': method,
             'headers': headers,
-            'payload': buffer
+            'payload': helpers.parseJSONToObject(buffer)
         };
 
         chosenHandler(data, function (statusCode, payload) {
@@ -64,4 +65,5 @@ const unifiedServer = function (req, res) {
 
 const router = {
     'ping': handlers.ping,
+    'users': handlers.users,
 };
