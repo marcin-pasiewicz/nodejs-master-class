@@ -4,6 +4,7 @@ const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const fs = require('fs');
+const handlers = require('./lib/handlers');
 
 const httpServer = http.createServer(function(req, res) {
     unifiedServer(req, res)
@@ -59,16 +60,6 @@ const unifiedServer = function (req, res) {
             console.log('Returning this response', statusCode, payloadString);
         })
     });
-};
-
-const handlers = {};
-
-handlers.notFound = function (data, callback) {
-    callback(404)
-};
-
-handlers.ping = function (data, callback) {
-    callback(200)
 };
 
 const router = {
