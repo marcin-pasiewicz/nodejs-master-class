@@ -8,32 +8,34 @@
     <base href="{global.baseUrl}" />
     <title>{head.title} | {global.appName}</title>
     <meta name="description" content="{head.description}">
-    <link type="image/x-icon" rel="icon" href="/favicon.ico">
-    <script type="text/javascript" charset="utf-8" src="public/app.js"></script>
-    <link rel="stylesheet" type="text/css" href="public/app.css" />
+    <link type="image/x-icon" rel="icon" href="favicon.ico">
+    <script type="text/javascript" charset="utf-8" src="/public/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/app.css" />
 </head>
 <body class="{body.class}">
 <div class="wrapper">
     <div class="header">
-        <a href="/" class="logo"></a>
+        <a href="/" class="logo">
+            <img src="public/logo.png" alt="logo">
+        </a>
         <ul class="menu">
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
-                <a href="/" class="loggedOut">Signup</a>
+            <li class="loggedOut">
+                <a href="/account/create">Signup</a>
             </li>
-            <li>
-                <a href="/" class="loggedOut">Login</a>
+            <li class="loggedOut">
+                <a href="/session/create">Login</a>
             </li>
-            <li>
-                <a href="/" class="loggedIn">Dashboard</a>
+            <li class="loggedIn">
+                <a href="/checks/all">Dashboard</a>
             </li>
-            <li>
-                <a href="/" class="loggedIn">Account Settings</a>
+            <li class="loggedIn">
+                <a href="/account/edit">Account Settings</a>
             </li>
-            <li>
-                <a href="/" class="loggedIn">Logout</a>
+            <li class="loggedIn">
+                <a href="#">Logout</a>
             </li>
         </ul>
     </div>
